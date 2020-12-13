@@ -6,6 +6,16 @@ It currently uses the MTConnect-pattern API (xml-based) from Engine for all of i
 
 Python 3 is required for use.
 
+## Installing
+
+The SDK is [availble directly from PyPI](https://pypi.org/project/solutionfamily/).
+
+Use `pip3` to install to your environment.
+
+```
+pip install solutionfamily
+```
+
 ## Examples
 
 [All Examples are available here](examples/readme.md)
