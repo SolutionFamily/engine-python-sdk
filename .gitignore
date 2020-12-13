@@ -1,0 +1,4 @@
+solutionengine.egg-info/
+build/
+__pycache__
+*.egg-info/
