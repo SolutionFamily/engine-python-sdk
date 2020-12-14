@@ -33,6 +33,38 @@ class Engine:
         response = requests.request(method="get", url=f"{self.url}/api/engine/dataitems", data=json.dumps(values))
         return response.json()
 
+    def set_current_data_values(self, values):
+        response = requests.request(method="put", url=f"{self.url}/api/engine/dataitems", data=json.dumps(values))
+        if(response.status_code != 200):            
+            return False
+        return True
+
+    def invoke_method(self, adapter_id, method_name, params = None):
+        # this is a legacy version, but allows for older Engine support
+        """
+        POST to [url]/agent/adapters/{adapterID}
+        <CallMethod methodName="Start">
+            <Parameter name="{paramName}>{paramValue}</Parameter>
+        </Callmethod>
+       
+        """
+        callnode = ET.Element('CallMethod')
+        callnode.set('methodName', method_name)
+        if params:
+            for p in params:
+                pnode = ET.SubElement(callnode, 'Parameter')
+                pnode.set('name', p.name)
+                pnode.text = p.value
+
+        path = self.url + '/agent/adapters/' + adapter_id
+        data = ET.tostring(callnode)
+        response = requests.put(path, data)
+
+        #update the locally-known value on success
+        if(response.status_code != 200):            
+            return False
+        return True
+
     def __loadmethods(self, path):
         # we separately load all adapter methods
         response = requests.get(path + '/agent/adapters')
@@ -132,8 +164,9 @@ class Method:
     def __init__(self, path, adapterid, deviceid, element):
         self.parameters = []
         self.name = element.get('name')
+        self.returnType = element.get('returnType')
         self._path = path
-        self._adapterid = adapterid
+        self.adapterid = adapterid
 
         #compose the ID
         component = element.get('component')
@@ -168,7 +201,7 @@ class Method:
                 pnode.set('name', p.name)
                 pnode.text = p.value
 
-        path = self._path + '/agent/adapters/' + self._adapterid
+        path = self._path + '/agent/adapters/' + self.adapterid
         data = ET.tostring(callnode)
         response = requests.put(path, data)
 

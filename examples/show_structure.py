@@ -17,14 +17,20 @@ def main(args=[]):
         print(f" _[{d.name}]")
         for di in d.dataItems:
             print(f"  | -[name: {di.name} id: {di.id} ({di.valueType}) {'writable' if (di.writable == True) else 'not writable'}]")
+        for m in d.methods:
+            print(f"  | -<method {m.name} in adapter [{m.adapterid}]")
         for c in d.components:
             print(f"  \\_[{c.name}]")
             for di in c.dataItems:
                 print(f"    | -[name: {di.name} id: {di.id} ({di.valueType}) {('writable' if (di.writable == True) else 'not writable')}]")
+        for m in d.methods:
+            print(f"    | -<method {m.name} in adapter [{m.adapterid}]")
             for sc in c.components:
                 print(f"    \\_[{sc.name}]")
                 for di in sc.dataItems:
                     print(f"        | -[name: {di.name} id: {di.id} ({di.valueType}) {('writable' if (di.writable == True) else 'not writable')}]")
+                    for m in d.methods:
+                        print(f"      | -<method {m.name} in adapter [{m.adapterid}]")
 
 if __name__ == '__main__':
     main(args=sys.argv)

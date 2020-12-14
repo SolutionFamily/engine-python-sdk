@@ -28,7 +28,7 @@ for d in engine.devices:
                 print(f"        | -[name: {di.name} id: {di.id} ({di.valueType}) {('writable' if (di.writable == True) else 'not writable')}]")
 ```
 
-### Querying current DataItem values by ID
+## Querying current DataItem values by ID
 
 [`watch_values.py`](watch_values.py)
 
@@ -50,4 +50,36 @@ while True:
     # wait and loop
     print("----")
     time.sleep(5)
+```
+
+## Settinga a list of DataItem values
+
+[`set_values.py`](set_values.py)
+
+```
+address = "http://localhost:8080"
+
+values_to_set = {
+    "EngineInfo.EngineName": "New Engine Name", 
+    "EngineInfo.Location.Latitude": 41.888332,   
+    "EngineInfo.Location.Longitude": -87.602566 }
+
+engine = Engine.fromurl(address)
+
+print(f"Settings {len(values_to_set)} values...")
+engine.set_current_data_values(values_to_set)
+print("done.")
+```
+## Calling an Engine Method
+
+[`call_method.py`](set_values.py)
+
+```
+address = "http://localhost:8080"
+
+engine = Engine.fromurl(address)
+
+print(f"Calling Engine method...")
+engine.invoke_method('EngineInfo', 'RestartEngine')
+print("done.")
 ```
