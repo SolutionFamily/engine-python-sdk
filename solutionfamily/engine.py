@@ -135,7 +135,8 @@ class Node:
             if device:
                 events = device.find('s:Events', Engine.ns)
                 if events:
-                    for v in events.getchildren():                        
+                    children = list(events.iter())
+                    for v in children:                        
                         diid = v.get('dataItemId')
                         for di in self.dataItems:
                             if di.id == diid:
