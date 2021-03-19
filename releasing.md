@@ -17,7 +17,7 @@ If you're a Python dev, you might wonder why this file is here. Since Python is 
    $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
    ```
 5. Check the publish result at  https://test.pypi.org/project/solutionfamily/
-6. If all is goo, publish publicly
+6. If all is good, publish publicly
    ```
    $ twine upload dist/*
    ```
