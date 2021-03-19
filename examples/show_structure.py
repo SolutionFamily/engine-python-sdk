@@ -4,12 +4,17 @@ import sys
 from solutionfamily.engine import Engine
 
 def main(args=[]):
-    address = "http://localhost:8080"
+    address = "http://192.168.0.14:8080"
 
     engine = Engine.fromurl(address)
 
-    print(f'Querying Engine Structure...')
+    print(f'Querying Engine Info...')
+    engine.refresh_info()
+    print(f'  Name:    {engine.name}')
+    print(f'  Version: {engine.version}')
+    print(f'  Host OS: {engine.hostOS}')
 
+    print(f'Querying Engine Structure...')
     engine.refresh_structure()
 
     # print the entire Engine structure

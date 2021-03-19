@@ -13,31 +13,119 @@ import json
 class Engine:
     #This is effectively a static in python
     ns = {'mtc': 'urn:mtconnect.com:MTConnectDevices:1.1', 's': 'urn:mtconnect.com:MTConnectStreams:1.1'}
-
+    
     def __init__(self, path):
         self.url = path
         self.devices = []
         self.__Methods = []
-    
+        self.__build = None
+        self.version = '<unknown>'
+        self.hostOS = '<unknown>'
+        self.name = '<unknown>'
+
     @staticmethod
     def fromurl(path):
         engine = Engine(path)
         return engine
     
+    def refresh_info(self):
+        # use an MTConnect query, as they don't require v4 APIs
+        self.version = self.get_current_value('EngineInfo.VersionNumber')
+        self.__build = int(self.version.split('.')[2])
+        self.hostOS = self.get_current_value('EngineInfo.HostOS')
+        self.name = self.get_current_value('EngineInfo.EngineName')
+
     def refresh_structure(self):
         self.__loadmethods(self.url)
         self.__loaddevices(self.url)
 
+    def get_current_value(self, dataItemId):
+        # {{engine_root}}/mtc/current?path=//DataItem[@id="{id}"]
+        # expected return looks like:
+        # <MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
+        # <Header creationTime="2021-03-18T23:30:44" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="55751" firstSequence="488" lastSequence="488" />
+        # <Streams>
+        #    <DeviceStream uuid="EngineInfo" id="EngineInfo" name="EngineInfo">
+        #    <Events>
+        #        <Other dataItemId="EngineInfo.VersionNumber" sequence="488" timestamp="2021-03-18T19:17:53" name="VersionNumber">4.0.21073.0</Other>
+        #    </Events>
+        #</DeviceStream>
+        #</Streams>
+        #</MTConnectStreams>
+        response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
+        tree = ET.fromstring(response.content)
+        streams = tree.find('s:Streams', Engine.ns)
+        if streams:
+            device = streams.find('s:DeviceStream', Engine.ns)
+            if device:
+                for strm in device.getchildren():
+                    for di in strm.getchildren():
+                        if di.attrib['dataItemId']==dataItemId:
+                            return di.text
+
+        return None
+
+    def set_current_value(self, dataItemId, value):
+        # {{engine_root}}/mtc/current?path=//DataItem[@id="{id}"]
+        # expected return looks like:
+        # <MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
+        # <Header creationTime="2021-03-18T23:30:44" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="55751" firstSequence="488" lastSequence="488" />
+        # <Streams>
+        #    <DeviceStream uuid="EngineInfo" id="EngineInfo" name="EngineInfo">
+        #    <Events>
+        #        <Other dataItemId="EngineInfo.VersionNumber" sequence="488" timestamp="2021-03-18T19:17:53" name="VersionNumber">4.0.21073.0</Other>
+        #    </Events>
+        #</DeviceStream>
+        #</Streams>
+        #</MTConnectStreams>
+        response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
+        tree = ET.fromstring(response.content)
+        streams = tree.find('s:Streams', Engine.ns)
+        if streams:
+            device = streams.find('s:DeviceStream', Engine.ns)
+            if device:
+                for strm in device.getchildren():
+                    for di in strm.getchildren():
+                        if di.attrib['dataItemId']==dataItemId:
+                            return di.text
+
+        return None
+
     def get_current_data_values(self, values):
-        # this is a v4 API and requires newer Engines
+        if self.__build == None:
+            self.refresh_info()
+
+        if self.__build < 20348:
+            raise EnvironmentError('Engine version 4.0.20438 or later required for get_current_data_values().  Use get_current_value()')
+
+        # this is a v4 API and requires newer Engines (4.0.20348 and later)
         response = requests.request(method="get", url=f"{self.url}/api/engine/dataitems", data=json.dumps(values))
         return response.json()
 
     def set_current_data_values(self, values):
-        response = requests.request(method="put", url=f"{self.url}/api/engine/dataitems", data=json.dumps(values))
-        if(response.status_code != 200):            
-            return False
-        return True
+        if self.__build == None:
+            self.refresh_info()
+
+        if self.__build < 22348:
+            itemsnode = ET.Element('DataItems')
+            for di in values:
+                itemnode = ET.SubElement(itemsnode, 'DataItem')
+                itemnode.set('dataItemId', di)
+                valuenode = ET.SubElement(itemnode, 'Value')
+                valuenode.text = str(values[di])
+
+            content = ET.tostring(itemsnode)
+            response = requests.post(f"{self.url}/agent/data", content)
+            if(response.status_code != 200):            
+                return False
+            return True
+
+        else:
+            # this is a v4 API and requires newer Engines (4.0.20348 and later)
+            response = requests.request(method="put", url=f"{self.url}/api/engine/dataitems", data=json.dumps(values))
+            if(response.status_code != 200):            
+                return False
+            return True
 
     def invoke_method(self, adapter_id, method_name, params = None):
         # this is a legacy version, but allows for older Engine support

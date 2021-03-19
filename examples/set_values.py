@@ -4,12 +4,13 @@ import sys
 from solutionfamily.engine import Engine
 
 def main(args=[]):
-    address = "http://localhost:8080"
+    address = "http://192.168.0.14:8080"
 
+    # these data items might not exist in your engine.  Adjust as appropriate
     values_to_set = {
-        "EngineInfo.EngineName": "New Engine Name", 
-        "EngineInfo.Location.Latitude": 41.888332,   
-        "EngineInfo.Location.Longitude": -87.602566 }
+        "EngineInfo.EngineName": "Python Engine Name", 
+        "Facility.Temperature": 42.42,   
+        "Facility.Start": False }
 
     engine = Engine.fromurl(address)
 
