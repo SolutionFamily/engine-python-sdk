@@ -9,7 +9,7 @@ import time
 def main(args=[]):
     address = "http://192.168.0.14:8080"
 #    address = "http://localhost:8080"
-    item_ids = ['EngineInfo.ProcessorLoadPct', 'EngineInfo.UpTime']
+    item_ids = ['EngineInfo.ProcessorLoadPct', 'EngineInfo.UpTime', 'EngineInfo.Location.PostalCode']
 
     # create the engine
     engine = Engine.fromurl(address)

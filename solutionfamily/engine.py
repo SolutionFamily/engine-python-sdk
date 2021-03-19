@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import requests
 import dateutil.parser
 from datetime import datetime
-
+import collections
 import json
 
 # pip requirements:
@@ -27,7 +27,10 @@ class Engine:
     def fromurl(path):
         engine = Engine(path)
         return engine
-    
+
+    def __getitem__(self, key):
+        return next((d for d in self.devices if d.name == key), None)
+
     def refresh_info(self):
         # use an MTConnect query, as they don't require v4 APIs
         self.version = self.get_current_value('EngineInfo.VersionNumber')
@@ -58,10 +61,19 @@ class Engine:
         if streams:
             device = streams.find('s:DeviceStream', Engine.ns)
             if device:
-                for strm in device.getchildren():
-                    for di in strm.getchildren():
-                        if di.attrib['dataItemId']==dataItemId:
-                            return di.text
+                # is this a device or component? MTConnect, sigh
+                comp = device.find('s:ComponentStream', Engine.ns)
+
+                if not comp is None:
+                    for strm in comp.getchildren():
+                        for di in strm.getchildren():
+                            if di.attrib['dataItemId']==dataItemId:
+                                return di.text
+                else:
+                    for strm in device.getchildren():
+                        for di in strm.getchildren():
+                            if di.attrib['dataItemId']==dataItemId:
+                                return di.text
 
         return None
 
@@ -106,7 +118,7 @@ class Engine:
         if self.__build == None:
             self.refresh_info()
 
-        if self.__build < 22348:
+        if self.__build < 20348:
             itemsnode = ET.Element('DataItems')
             for di in values:
                 itemnode = ET.SubElement(itemsnode, 'DataItem')
@@ -178,34 +190,54 @@ class Engine:
         list = []
         devices = tree.find('mtc:Devices', Engine.ns)
         for device in devices.findall('mtc:Device', Engine.ns):
-            d = Device(path, device)
+            d = Device(self, path, device)
             d._fillMethods(self.__Methods)
             list.append(d)
         self.devices = list
 
+class DataItemList():
+    def __init__(self):
+        self.__dataItems = []
+
+    def _add(self, value):
+        self.__dataItems.append(value)
+
+    def __getitem__(self, key):
+        # look by name
+        di = next((d for d in self.__dataItems if d.name == key), None)
+
+        if not di is None:
+            return di
+
+        # then by id
+        return next((d for d in self.__dataItems if d.id == key), None)
+
 class Node:
-    def __init__(self, path, element):
+    def __init__(self, engine, path, element):
+        self.__engine = engine
         self._path = path
         self.name = element.get('name')
         self.id = element.get('id')
         self.components = []
-        self.dataItems = []
+        self.dataItems = DataItemList()
         self.methods = []
+
+    def __getitem__(self, key):
+        return next((c for c in self.components if c.name == key), None)
 
     def _getDataItems(self, path, element):
         dataitems = element.find('mtc:DataItems', Engine.ns)
         if dataitems:
-            dilist = []
             for dataitem in dataitems.findall('mtc:DataItem', Engine.ns):
-                dilist.append(DataItem(path, dataitem))
-            self.dataItems = dilist
+                di = DataItem(self.__engine, path, dataitem)
+                self.dataItems._add(di)
 
     def _getComponents(self, path, element):
         cmps = element.find('mtc:Components', Engine.ns)
         if cmps:
             clist = []
             for c in cmps.findall('mtc:Component', Engine.ns):
-                clist.append(Component(path, c))
+                clist.append(Component(self.__engine, path, c))
             self.components = clist
 
     def _fillMethods(self, methods):
@@ -214,32 +246,15 @@ class Node:
             if self.id == m.parent:
                 self.methods.append(m)
     
-    def refresh_data_items(self):
-        response = requests.get(self._path + '/mtc/current?path=' + self.id)
-        tree = ET.fromstring(response.content)
-        streams = tree.find('s:Streams', Engine.ns)
-        if streams:
-            device = streams.find('s:DeviceStream', Engine.ns)
-            if device:
-                events = device.find('s:Events', Engine.ns)
-                if events:
-                    children = list(events.iter())
-                    for v in children:                        
-                        diid = v.get('dataItemId')
-                        for di in self.dataItems:
-                            if di.id == diid:
-                                di._set_value_from_xml(v.text, v.get('timestamp'))
-                                break
-
 class Component(Node):
-    def __init__(self, path, element):
-        super(Component, self).__init__(path, element)
+    def __init__(self, engine, path, element):
+        super(Component, self).__init__(engine, path, element)
         super(Component, self)._getDataItems(path, element)
         super(Component, self)._getComponents(path, element)
 
 class Device(Node):
-    def __init__(self, path, element):
-        super(Device, self).__init__(path, element)
+    def __init__(self, engine, path, element):
+        super(Device, self).__init__(engine, path, element)
         self.uuid = element.get('uuid')
         super(Device, self)._getDataItems(path, element)
         super(Device, self)._getComponents(path, element)
@@ -300,7 +315,8 @@ class Method:
         return True
 
 class DataItem:
-    def __init__(self, path, element):
+    def __init__(self, engine, path, element):
+        self.__engine = engine
         self._path = path
         self.category = element.get('category')
         self.type = element.get('type')
@@ -309,6 +325,9 @@ class DataItem:
         self.writable = element.get('writable') == 'True'
         self.valueType = element.get('valueType')
         self.value = None
+
+    def get_current_value(self):
+        return self.__engine.get_current_value(self.id)
 
     def _set_value_from_xml(self, value, timestamp):
         if(timestamp is None):
