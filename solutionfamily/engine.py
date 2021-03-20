@@ -198,6 +198,7 @@ class Engine:
 class DataItemList():
     def __init__(self):
         self.__dataItems = []
+        self.__index = 0
 
     def _add(self, value):
         self.__dataItems.append(value)
@@ -211,6 +212,17 @@ class DataItemList():
 
         # then by id
         return next((d for d in self.__dataItems if d.id == key), None)
+
+    def __iter__(self):
+        #returning __iter__ object
+        return self
+
+    def __next__(self):
+        self.__index = self.__index + 1
+        if self.__index < len(self.__dataItems):
+            return self.__dataItems[self.__index]
+        
+        raise StopIteration
 
 class Node:
     def __init__(self, engine, path, element):
@@ -327,7 +339,8 @@ class DataItem:
         self.value = None
 
     def get_current_value(self):
-        return self.__engine.get_current_value(self.id)
+        self.value = self.__engine.get_current_value(self.id)
+        return self.value
 
     def _set_value_from_xml(self, value, timestamp):
         if(timestamp is None):

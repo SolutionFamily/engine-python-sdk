@@ -16,19 +16,16 @@ def main(args=[]):
     # query the data values - refreshing by device/component
     for d in engine.devices:
         print(f"------------\r\nData for {d.name}\r\n------------")
-        d.refresh_data_items()
         for di in d.dataItems:
-            print(f"{di.id} = {di.value}")
+            print(f"{di.id} = {di.get_current_value()}")
         for c in d.components:
             print(f"------------\r\nData for {c.name}\r\n------------")
-            c.refresh_data_items()
             for di in c.dataItems:
-                print(f"{di.id} = {di.value}")
+                print(f"{di.id} = {di.get_current_value()}")
             for sc in c.components:
                 print(f"------------\r\nData for {sc.name}\r\n------------")
-                sc.refresh_data_items()
                 for di in sc.dataItems:
-                    print(f"{di.id} = {di.value}")
+                    print(f"{di.id} = {di.get_current_value()}")
 
 
 if __name__ == '__main__':
