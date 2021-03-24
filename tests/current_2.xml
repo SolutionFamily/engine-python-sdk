@@ -1,0 +1,18 @@
+<MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
+    <Header creationTime="2021-03-24T16:52:32" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="34829811" firstSequence="12" lastSequence="34829811" />
+    <Streams>
+        <DeviceStream uuid="SerialPort" id="SerialPort" name="SerialPort">
+            <Samples>
+                <Other dataItemId="SerialPort.WriteCounter" sequence="910" timestamp="2021-03-18T19:17:57" name="WriteCounter">0</Other>
+                <Other dataItemId="SerialPort.ErrorCounter" sequence="911" timestamp="2021-03-18T19:17:57" name="ErrorCounter">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="SerialPort.IsConnected" sequence="909" timestamp="2021-03-18T19:17:57" name="IsConnected">False</Other>
+                <Other dataItemId="SerialPort.Status" sequence="379" timestamp="2021-03-18T19:17:52" name="Status">Waiting for Initialization</Other>
+                <Other dataItemId="SerialPort.PortName" sequence="407" timestamp="2021-03-18T19:17:52" name="PortName">Not configured</Other>
+                <Other dataItemId="SerialPort.Faulted" sequence="912" timestamp="2021-03-18T19:17:57" name="Faulted">False</Other>
+                <Other dataItemId="SerialPort.FaultInfo" sequence="413" timestamp="2021-03-18T19:17:52" name="FaultInfo"></Other>
+            </Events>
+        </DeviceStream>
+    </Streams>
+</MTConnectStreams>

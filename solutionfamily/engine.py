@@ -43,65 +43,45 @@ class Engine:
         self.__loaddevices(self.url)
 
     def get_current_value(self, dataItemId):
-        # {{engine_root}}/mtc/current?path=//DataItem[@id="{id}"]
-        # expected return looks like:
-        # <MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
-        # <Header creationTime="2021-03-18T23:30:44" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="55751" firstSequence="488" lastSequence="488" />
-        # <Streams>
-        #    <DeviceStream uuid="EngineInfo" id="EngineInfo" name="EngineInfo">
-        #    <Events>
-        #        <Other dataItemId="EngineInfo.VersionNumber" sequence="488" timestamp="2021-03-18T19:17:53" name="VersionNumber">4.0.21073.0</Other>
-        #    </Events>
-        #</DeviceStream>
-        #</Streams>
-        #</MTConnectStreams>
         response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
-        tree = ET.fromstring(response.content)
-        streams = tree.find('s:Streams', Engine.ns)
-        if streams:
-            device = streams.find('s:DeviceStream', Engine.ns)
-            if device:
-                # is this a device or component? MTConnect, sigh
-                comp = device.find('s:ComponentStream', Engine.ns)
-
-                if not comp is None:
-                    for strm in comp.getchildren():
-                        for di in strm.getchildren():
-                            if di.attrib['dataItemId']==dataItemId:
-                                return di.text
-                else:
-                    for strm in device.getchildren():
-                        for di in strm.getchildren():
-                            if di.attrib['dataItemId']==dataItemId:
-                                return di.text
-
+        if response.ok:
+            return self.__get_current_value_from_xml(dataItemId, response.content)
+        else:
+            return None
+    
+    def __find_current_value_in_children(self, dataItemId, node):
+        child_nodes = list(node)
+        for child in child_nodes:
+            if 'ComponentStream' in child.tag:
+                found = self.__find_current_value_in_children(dataItemId, child)
+                if found:
+                    return found
+            else:
+                # list of data items (may be Samples, Events, etc)
+                item_list = list(child)
+                for di in item_list:
+                    if di.attrib['dataItemId']==dataItemId:
+                        return di.text                        
         return None
 
-    def set_current_value(self, dataItemId, value):
-        # {{engine_root}}/mtc/current?path=//DataItem[@id="{id}"]
-        # expected return looks like:
-        # <MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
-        # <Header creationTime="2021-03-18T23:30:44" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="55751" firstSequence="488" lastSequence="488" />
-        # <Streams>
-        #    <DeviceStream uuid="EngineInfo" id="EngineInfo" name="EngineInfo">
-        #    <Events>
-        #        <Other dataItemId="EngineInfo.VersionNumber" sequence="488" timestamp="2021-03-18T19:17:53" name="VersionNumber">4.0.21073.0</Other>
-        #    </Events>
-        #</DeviceStream>
-        #</Streams>
-        #</MTConnectStreams>
-        response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
-        tree = ET.fromstring(response.content)
+    def __get_current_value_from_xml(self, dataItemId, xml):
+        try:
+            tree = ET.fromstring(xml)
+        except ET.ParseError as p:
+            raise Exception(f"Invalid MTConnect Current XML stream: {p.msg}")
+
         streams = tree.find('s:Streams', Engine.ns)
         if streams:
-            device = streams.find('s:DeviceStream', Engine.ns)
-            if device:
-                for strm in device.getchildren():
-                    for di in strm.getchildren():
-                        if di.attrib['dataItemId']==dataItemId:
-                            return di.text
-
+            devices = list(streams)
+            for dev in devices:
+                found = self.__find_current_value_in_children(dataItemId, dev)
+                if found:
+                    return found
+                    
         return None
+
+    def set_current_data_value(self, dataItemId, value):
+        return self.set_current_data_values({dataItemId: value})
 
     def get_current_data_values(self, values):
         if self.__build == None:

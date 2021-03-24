@@ -1,0 +1,500 @@
+<MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
+    <Header creationTime="2021-03-24T16:52:32" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="34829811" firstSequence="12" lastSequence="34829811" />
+    <Streams>
+        <DeviceStream uuid="Schedule" id="Schedule" name="Schedule">
+            <Events>
+                <ClockTime dataItemId="Schedule.CurrentDateTime" sequence="34829809" timestamp="2021-03-24T12:52:31" name="CurrentDateTime">3/24/2021 12:52:31 PM</ClockTime>
+                <Other dataItemId="Schedule.Day" sequence="31580303" timestamp="2021-03-24T00:00:00" name="Day">Wednesday</Other>
+                <Other dataItemId="Schedule.Shift" sequence="33599883" timestamp="2021-03-24T08:00:00" name="Shift">2</Other>
+                <Other dataItemId="Schedule.Hour" sequence="34797412" timestamp="2021-03-24T12:45:00" name="Hour">5</Other>
+                <Other dataItemId="Schedule.InProduction" sequence="34734265" timestamp="2021-03-24T12:30:00" name="InProduction">True</Other>
+                <ClockTime dataItemId="Schedule.ShiftStartTime" sequence="33599885" timestamp="2021-03-24T08:00:00" name="ShiftStartTime">3/24/2021 8:00:00 AM</ClockTime>
+                <ClockTime dataItemId="Schedule.PlannedShiftStartTime" sequence="33599886" timestamp="2021-03-24T08:00:00" name="PlannedShiftStartTime">3/24/2021 8:00:00 AM</ClockTime>
+                <Other dataItemId="Schedule.ShiftProdHours" sequence="34829810" timestamp="2021-03-24T12:52:31" name="ShiftProdHours">4.12527777777778</Other>
+                <Other dataItemId="Schedule.ShiftProdHoursGoal" sequence="840" timestamp="2021-03-18T19:17:57" name="ShiftProdHoursGoal">7</Other>
+                <Other dataItemId="Schedule.DayProdHoursGoal" sequence="13392364" timestamp="2021-03-21T00:00:00" name="DayProdHoursGoal">21</Other>
+                <Other dataItemId="Schedule.DayProdHours" sequence="34829811" timestamp="2021-03-24T12:52:31" name="DayProdHours">11.1252777777778</Other>
+                <Other dataItemId="Schedule.InBreak" sequence="34734266" timestamp="2021-03-24T12:30:00" name="InBreak">False</Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="AMNOW-Operations" id="AMNOW-Operations" name="AMNOW-Operations">
+            <Events>
+                <Other dataItemId="AMNOW-Operations.PartDirectory" sequence="12" timestamp="2021-03-18T19:17:46" name="PartDirectory">/usr/SF/AMNOW</Other>
+                <Other dataItemId="AMNOW-Operations.Error" sequence="579" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                <Other dataItemId="AMNOW-Operations.ErrorString" sequence="58" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+            </Events>
+            <ComponentStream component="Component" componentId="AMNOW-Operations.StopGapFaceMask" name="StopGapFaceMask">
+                <Samples>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartCounter" sequence="600" timestamp="2021-03-18T19:17:53" name="PartCounter">0</Other>
+                </Samples>
+                <Events>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.OperationsReportsFile" sequence="62" timestamp="2021-03-18T19:17:52" name="OperationsReportsFile"></Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.ReportSent" sequence="586" timestamp="2021-03-18T19:17:53" name="ReportSent">False</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.ReportGenerated" sequence="589" timestamp="2021-03-18T19:17:53" name="ReportGenerated">False</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Error" sequence="590" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Running" sequence="594" timestamp="2021-03-18T19:17:53" name="Running">False</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.ErrorString" sequence="78" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Report" sequence="80" timestamp="2021-03-18T19:17:52" name="Report"></Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartName" sequence="83" timestamp="2021-03-18T19:17:52" name="PartName">StopGapFaceMask</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartID" sequence="85" timestamp="2021-03-18T19:17:52" name="PartID">394b5e50-032b-4d71-9d72-48d3ac18c49b</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartStartTime" sequence="602" timestamp="2021-03-18T19:17:53" name="PartStartTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartEndTime" sequence="603" timestamp="2021-03-18T19:17:53" name="PartEndTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Version" sequence="94" timestamp="2021-03-18T19:17:52" name="Version">2.0.0.1</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="AMNOW-Operations.StopGapFaceMask.Step1:Printing" name="Step1:Printing">
+                <Events>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Step1:Printing.EquipmentType" sequence="96" timestamp="2021-03-18T19:17:52" name="EquipmentType">Multi-Jet-Fusion</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Step1:Printing.StartTime" sequence="604" timestamp="2021-03-18T19:17:53" name="StartTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Step1:Printing.EndTime" sequence="606" timestamp="2021-03-18T19:17:53" name="EndTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.Step1:Printing.EquipmentName" sequence="104" timestamp="2021-03-18T19:17:52" name="EquipmentName">HP-5210</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="AMNOW-Equipment" id="AMNOW-Equipment" name="AMNOW-Equipment">
+            <Events>
+                <Other dataItemId="AMNOW-Equipment.PartDirectory" sequence="13" timestamp="2021-03-18T19:17:46" name="PartDirectory">/usr/SF/AMNOW</Other>
+                <Other dataItemId="AMNOW-Equipment.Error" sequence="595" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                <Other dataItemId="AMNOW-Equipment.ErrorString" sequence="74" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+            </Events>
+            <ComponentStream component="Component" componentId="AMNOW-Equipment.StopGapFaceMask" name="StopGapFaceMask">
+                <Events>
+                    <Other dataItemId="AMNOW-Equipment.StopGapFaceMask.PartName" sequence="81" timestamp="2021-03-18T19:17:52" name="PartName">StopGapFaceMask</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="AMNOW-Equipment.StopGapFaceMask.HP-5210" name="HP-5210">
+                <Events>
+                    <Other dataItemId="AMNOW-Equipment.StopGapFaceMask.HP-5210.EquipmentType" sequence="86" timestamp="2021-03-18T19:17:52" name="EquipmentType">Multi-Jet-Fusion</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Facility" id="Facility" name="Facility">
+            <Samples>
+                <Double dataItemId="Facility.ParkingLotCurrent" sequence="32" timestamp="2021-03-18T19:17:52" name="ParkingLotCurrent">0.0</Double>
+                <Double dataItemId="Facility.Temperature" sequence="490005" timestamp="2021-03-18T21:12:05" name="Temperature">42.42</Double>
+                <Double dataItemId="Facility.TestTemp" sequence="35" timestamp="2021-03-18T19:17:52" name="TestTemp">0.0</Double>
+            </Samples>
+            <Events>
+                <Availability dataItemId="Facility.Available" sequence="31" timestamp="2021-03-18T19:17:52" name="Available">AVAILABLE</Availability>
+                <Bool dataItemId="Facility.Start" sequence="490006" timestamp="2021-03-18T21:12:05" name="Start">False</Bool>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="ModbusSerial" id="ModbusSerial" name="ModbusSerial">
+            <Events>
+                <Other dataItemId="ModbusSerial.Faulted" sequence="433" timestamp="2021-03-18T19:17:53" name="Faulted">False</Other>
+                <Other dataItemId="ModbusSerial.FaultInfo" sequence="37" timestamp="2021-03-18T19:17:52" name="FaultInfo"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="ModbusTCP" id="ModbusTCP" name="ModbusTCP">
+            <ComponentStream component="Component" componentId="ModbusTCP.T38O_Ethernet" name="T38O_Ethernet">
+                <Samples>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.Port" sequence="435" timestamp="2021-03-18T19:17:53" name="Port">502</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.SamplePeriod" sequence="436" timestamp="2021-03-18T19:17:53" name="SamplePeriod">1000</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.Address" sequence="437" timestamp="2021-03-18T19:17:53" name="Address">255</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.CommCounter" sequence="441" timestamp="2021-03-18T19:17:53" name="CommCounter">0</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.CommFailedCounter" sequence="34829654" timestamp="2021-03-24T12:52:30" name="CommFailedCounter">53264</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.ConnectionCounter" sequence="443" timestamp="2021-03-18T19:17:53" name="ConnectionCounter">0</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.CommTime" sequence="446" timestamp="2021-03-18T19:17:53" name="CommTime">0</Other>
+                </Samples>
+                <Events>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.IsConnected" sequence="434" timestamp="2021-03-18T19:17:53" name="IsConnected">False</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.HostName" sequence="39" timestamp="2021-03-18T19:17:52" name="HostName">192.168.42.90</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.Status" sequence="42" timestamp="2021-03-18T19:17:52" name="Status">Connecting to 192.168.42.90 on Port 502</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.HoldingRegister" sequence="438" timestamp="2021-03-18T19:17:53" name="HoldingRegister">0</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.InputRegister" sequence="439" timestamp="2021-03-18T19:17:53" name="InputRegister">0</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.ReadInputs" sequence="440" timestamp="2021-03-18T19:17:53" name="ReadInputs">False</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.CommFailed" sequence="2041" timestamp="2021-03-18T19:18:16" name="CommFailed">True</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.CommLastTime" sequence="445" timestamp="2021-03-18T19:17:53" name="CommLastTime">3/18/2021 7:17:46 PM</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.Template" sequence="73" timestamp="2021-03-18T19:17:52" name="Template">T38O_Ethernet</Other>
+                    <Other dataItemId="ModbusTCP.T38O_Ethernet.DO1" sequence="34829655" timestamp="2021-03-24T12:52:25" name="DO1">false</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Email" id="Email" name="Email">
+            <Events>
+                <Other dataItemId="Email.Sender" sequence="44" timestamp="2021-03-18T19:17:52" name="Sender"></Other>
+                <Other dataItemId="Email.RecipientList" sequence="47" timestamp="2021-03-18T19:17:52" name="RecipientList"></Other>
+                <Other dataItemId="Email.Subject" sequence="48" timestamp="2021-03-18T19:17:52" name="Subject"></Other>
+                <Other dataItemId="Email.Body" sequence="51" timestamp="2021-03-18T19:17:52" name="Body"></Other>
+                <Other dataItemId="Email.AttachmentCount" sequence="896" timestamp="2021-03-18T19:17:57" name="AttachmentCount">0</Other>
+                <Other dataItemId="Email.UseTemplate" sequence="898" timestamp="2021-03-18T19:17:57" name="UseTemplate">False</Other>
+                <Other dataItemId="Email.TemplateName" sequence="59" timestamp="2021-03-18T19:17:52" name="TemplateName"></Other>
+                <Other dataItemId="Email.ErrorMessage" sequence="61" timestamp="2021-03-18T19:17:52" name="ErrorMessage"></Other>
+                <Other dataItemId="Email.Error" sequence="901" timestamp="2021-03-18T19:17:57" name="Error">False</Other>
+                <Other dataItemId="Email.Sent" sequence="903" timestamp="2021-03-18T19:17:57" name="Sent">False</Other>
+                <Other dataItemId="Email.Faulted" sequence="904" timestamp="2021-03-18T19:17:57" name="Faulted">False</Other>
+                <Other dataItemId="Email.FaultInfo" sequence="76" timestamp="2021-03-18T19:17:52" name="FaultInfo"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="Azure-IoT" id="Azure-IoT" name="Azure-IoT">
+            <Events>
+                <Other dataItemId="Azure-IoT.Error" sequence="565" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                <Other dataItemId="Azure-IoT.Connected" sequence="8176" timestamp="2021-03-18T19:19:42" name="Connected">True</Other>
+                <Other dataItemId="Azure-IoT.ErrorString" sequence="79" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+            </Events>
+            <ComponentStream component="Component" componentId="Azure-IoT.Command" name="Command">
+                <Samples>
+                    <Other dataItemId="Azure-IoT.Command.CommandCounter" sequence="568" timestamp="2021-03-18T19:17:53" name="CommandCounter">0</Other>
+                </Samples>
+                <Events>
+                    <Other dataItemId="Azure-IoT.Command.PropertyValue" sequence="82" timestamp="2021-03-18T19:17:52" name="PropertyValue"></Other>
+                    <Other dataItemId="Azure-IoT.Command.PropertyFound" sequence="567" timestamp="2021-03-18T19:17:53" name="PropertyFound">False</Other>
+                    <Other dataItemId="Azure-IoT.Command.NewCommand" sequence="569" timestamp="2021-03-18T19:17:53" name="NewCommand">False</Other>
+                    <Other dataItemId="Azure-IoT.Command.Data" sequence="99" timestamp="2021-03-18T19:17:52" name="Data"></Other>
+                    <Other dataItemId="Azure-IoT.Command.Properties" sequence="103" timestamp="2021-03-18T19:17:52" name="Properties"></Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Azure-IoT.Email" name="Email">
+                <Events>
+                    <Other dataItemId="Azure-IoT.Email.Properties" sequence="547" timestamp="2021-03-18T19:17:53" name="Properties">[level-email]</Other>
+                    <Other dataItemId="Azure-IoT.Email.EmailCounter" sequence="570" timestamp="2021-03-18T19:17:53" name="EmailCounter">0</Other>
+                    <Other dataItemId="Azure-IoT.Email.PropertiesCounter" sequence="571" timestamp="2021-03-18T19:17:53" name="PropertiesCounter">1</Other>
+                    <Other dataItemId="Azure-IoT.Email.Body" sequence="112" timestamp="2021-03-18T19:17:52" name="Body"></Other>
+                    <Other dataItemId="Azure-IoT.Email.Sent" sequence="573" timestamp="2021-03-18T19:17:53" name="Sent">False</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Azure-IoT.Message" name="Message">
+                <Events>
+                    <Other dataItemId="Azure-IoT.Message.Properties" sequence="116" timestamp="2021-03-18T19:17:52" name="Properties"></Other>
+                    <Other dataItemId="Azure-IoT.Message.MessageCounter" sequence="575" timestamp="2021-03-18T19:17:53" name="MessageCounter">0</Other>
+                    <Other dataItemId="Azure-IoT.Message.PropertiesCounter" sequence="576" timestamp="2021-03-18T19:17:53" name="PropertiesCounter">0</Other>
+                    <Other dataItemId="Azure-IoT.Message.Data" sequence="124" timestamp="2021-03-18T19:17:52" name="Data"></Other>
+                    <Other dataItemId="Azure-IoT.Message.Sent" sequence="577" timestamp="2021-03-18T19:17:53" name="Sent">False</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Azure-IoT.File" name="File">
+                <Events>
+                    <Other dataItemId="Azure-IoT.File.Error" sequence="578" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                    <Other dataItemId="Azure-IoT.File.ErrorString" sequence="135" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+                    <Other dataItemId="Azure-IoT.File.FileCounter" sequence="580" timestamp="2021-03-18T19:17:53" name="FileCounter">0</Other>
+                    <Other dataItemId="Azure-IoT.File.Sent" sequence="581" timestamp="2021-03-18T19:17:53" name="Sent">False</Other>
+                    <Other dataItemId="Azure-IoT.File.FilePath" sequence="145" timestamp="2021-03-18T19:17:52" name="FilePath"></Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Utilization" id="Utilization" name="Utilization">
+            <ComponentStream component="Component" componentId="Utilization.Schedule" name="Schedule">
+                <Events>
+                    <Other dataItemId="Utilization.Schedule.Shift" sequence="33599942" timestamp="2021-03-24T08:00:01" name="Shift">2</Other>
+                    <Other dataItemId="Utilization.Schedule.ShiftNumber" sequence="33599943" timestamp="2021-03-24T08:00:01" name="ShiftNumber">2</Other>
+                    <Other dataItemId="Utilization.Schedule.ShiftHour" sequence="34797465" timestamp="2021-03-24T12:45:00" name="ShiftHour">5</Other>
+                    <Other dataItemId="Utilization.Schedule.ShiftStartTime" sequence="33599945" timestamp="2021-03-24T08:00:01" name="ShiftStartTime">08:00:00</Other>
+                    <Other dataItemId="Utilization.Schedule.ShiftTime" sequence="34829792" timestamp="2021-03-24T12:52:31" name="ShiftTime">04:52:31</Other>
+                    <Other dataItemId="Utilization.Schedule.InProduction" sequence="34734336" timestamp="2021-03-24T12:30:00" name="InProduction">True</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Utility" id="Utility" name="Utility">
+            <ComponentStream component="Component" componentId="Utility.Date" name="Date">
+                <Events>
+                    <Other dataItemId="Utility.Date.Year" sequence="894" timestamp="2021-03-18T19:17:57" name="Year">2021</Other>
+                    <Other dataItemId="Utility.Date.Month" sequence="895" timestamp="2021-03-18T19:17:57" name="Month">3</Other>
+                    <Other dataItemId="Utility.Date.Day" sequence="31580279" timestamp="2021-03-24T00:00:00" name="Day">24</Other>
+                    <Other dataItemId="Utility.Date.Hour" sequence="34610833" timestamp="2021-03-24T12:00:01" name="Hour">12</Other>
+                    <Other dataItemId="Utility.Date.Minute" sequence="34827587" timestamp="2021-03-24T12:52:01" name="Minute">52</Other>
+                    <Other dataItemId="Utility.Date.Second" sequence="34829767" timestamp="2021-03-24T12:52:31" name="Second">31</Other>
+                    <Other dataItemId="Utility.Date.Weekday" sequence="31580278" timestamp="2021-03-24T00:00:00" name="Weekday">Wednesday</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.Process" name="Process">
+                <Samples>
+                    <Other dataItemId="Utility.Process.MaxWaitMS" sequence="865" timestamp="2021-03-18T19:17:57" name="MaxWaitMS">300000</Other>
+                    <Other dataItemId="Utility.Process.RunTimeMS" sequence="866" timestamp="2021-03-18T19:17:57" name="RunTimeMS">0</Other>
+                </Samples>
+                <Events>
+                    <Other dataItemId="Utility.Process.Done" sequence="862" timestamp="2021-03-18T19:17:57" name="Done">False</Other>
+                    <Other dataItemId="Utility.Process.Status" sequence="127" timestamp="2021-03-18T19:17:52" name="Status"></Other>
+                    <Other dataItemId="Utility.Process.Error" sequence="863" timestamp="2021-03-18T19:17:57" name="Error">False</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.TextBuilder" name="TextBuilder">
+                <Events>
+                    <Other dataItemId="Utility.TextBuilder.Text" sequence="139" timestamp="2021-03-18T19:17:52" name="Text"></Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.JSONBuilder" name="JSONBuilder">
+                <Events>
+                    <Other dataItemId="Utility.JSONBuilder.Error" sequence="869" timestamp="2021-03-18T19:17:57" name="Error">False</Other>
+                    <Other dataItemId="Utility.JSONBuilder.ErrorString" sequence="144" timestamp="2021-03-18T19:17:52" name="ErrorString"></Other>
+                    <Other dataItemId="Utility.JSONBuilder.Text" sequence="146" timestamp="2021-03-18T19:17:52" name="Text"></Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.Simulator" name="Simulator">
+                <Events>
+                    <Other dataItemId="Utility.Simulator.Amplitude" sequence="871" timestamp="2021-03-18T19:17:57" name="Amplitude">1</Other>
+                    <Other dataItemId="Utility.Simulator.Frequency" sequence="873" timestamp="2021-03-18T19:17:57" name="Frequency">3600</Other>
+                    <Other dataItemId="Utility.Simulator.Offset" sequence="874" timestamp="2021-03-18T19:17:57" name="Offset">0</Other>
+                    <Other dataItemId="Utility.Simulator.Sine" sequence="876" timestamp="2021-03-18T19:17:57" name="Sine">0</Other>
+                    <Other dataItemId="Utility.Simulator.Running" sequence="877" timestamp="2021-03-18T19:17:57" name="Running">False</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.DateBuilder" name="DateBuilder">
+                <Events>
+                    <Other dataItemId="Utility.DateBuilder.Date" sequence="879" timestamp="2021-03-18T19:17:57" name="Date">1/1/0001 12:00:00 AM</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Utility.Random" name="Random">
+                <Events>
+                    <Other dataItemId="Utility.Random.Minimum" sequence="880" timestamp="2021-03-18T19:17:57" name="Minimum">0</Other>
+                    <Other dataItemId="Utility.Random.Maximum" sequence="882" timestamp="2021-03-18T19:17:57" name="Maximum">10</Other>
+                    <Other dataItemId="Utility.Random.Decimals" sequence="883" timestamp="2021-03-18T19:17:57" name="Decimals">0</Other>
+                    <Other dataItemId="Utility.Random.Value" sequence="888" timestamp="2021-03-18T19:17:57" name="Value">2</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Publications" id="pubs" name="Publications">
+            <ComponentStream component="Component" componentId="pubs.SQLiteDataStore" name="SQLiteDataStore">
+                <Events>
+                    <Other dataItemId="pubs.SQLiteDataStore.Status" sequence="122" timestamp="2021-03-18T19:17:52" name="Status"></Other>
+                    <Other dataItemId="pubs.SQLiteDataStore.Faulted" sequence="906" timestamp="2021-03-18T19:17:57" name="Faulted">False</Other>
+                    <Other dataItemId="pubs.SQLiteDataStore.QueuedItems" sequence="907" timestamp="2021-03-18T19:17:57" name="QueuedItems">0</Other>
+                    <Other dataItemId="pubs.SQLiteDataStore.LastPublication" sequence="908" timestamp="2021-03-18T19:17:57" name="LastPublication">1/1/0001 12:00:00 AM</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="MarlinPrinters" id="MarlinPrinters" name="MarlinPrinters">
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter" name="MyPrinter">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.State" sequence="553" timestamp="2021-03-18T19:17:53" name="State">Idle</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Printing" sequence="506" timestamp="2021-03-18T19:17:53" name="Printing">False</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Finished" sequence="507" timestamp="2021-03-18T19:17:53" name="Finished">False</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connected" sequence="508" timestamp="2021-03-18T19:17:53" name="Connected">False</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Idle" sequence="557" timestamp="2021-03-18T19:17:53" name="Idle">True</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.PrinterAddress" sequence="152" timestamp="2021-03-18T19:17:52" name="PrinterAddress">/dev/ttyACM1,250000</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.APIKey" sequence="154" timestamp="2021-03-18T19:17:52" name="APIKey"></Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Make" sequence="155" timestamp="2021-03-18T19:17:52" name="Make"></Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Model" sequence="157" timestamp="2021-03-18T19:17:52" name="Model"></Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Firmware" sequence="159" timestamp="2021-03-18T19:17:52" name="Firmware"></Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter.Extruder" name="Extruder">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Extruder.Temp" sequence="34829775" timestamp="2021-03-24T12:52:31" name="Temp">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Extruder.TargetTemp" sequence="34829776" timestamp="2021-03-24T12:52:31" name="TargetTemp">0</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter.Bed" name="Bed">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Bed.Temp" sequence="34829777" timestamp="2021-03-24T12:52:31" name="Temp">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Bed.TargetTemp" sequence="34829778" timestamp="2021-03-24T12:52:31" name="TargetTemp">0</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter.Connection" name="Connection">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connection.SerialPort" sequence="608" timestamp="2021-03-18T19:17:53" name="SerialPort"></Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connection.CommTemperatureCounter" sequence="523" timestamp="2021-03-18T19:17:53" name="CommTemperatureCounter">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connection.CommZChangedCounter" sequence="524" timestamp="2021-03-18T19:17:53" name="CommZChangedCounter">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connection.CommCurrentCounter" sequence="525" timestamp="2021-03-18T19:17:53" name="CommCurrentCounter">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Connection.CommPositionCounter" sequence="526" timestamp="2021-03-18T19:17:53" name="CommPositionCounter">0</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter.CurrentJob" name="CurrentJob">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.PrintingStartTime" sequence="34829782" timestamp="2021-03-24T12:52:31" name="PrintingStartTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.PrintingEndTime" sequence="34829783" timestamp="2021-03-24T12:52:31" name="PrintingEndTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.PrintingTime" sequence="34829784" timestamp="2021-03-24T12:52:31" name="PrintingTime">00:00:00</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.PartCount" sequence="34829785" timestamp="2021-03-24T12:52:31" name="PartCount">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.FileSize" sequence="34829779" timestamp="2021-03-24T12:52:31" name="FileSize">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.FileName" sequence="187" timestamp="2021-03-18T19:17:52" name="FileName"></Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.FilePosition" sequence="34829780" timestamp="2021-03-24T12:52:31" name="FilePosition">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.FilePercentComplete" sequence="34829781" timestamp="2021-03-24T12:52:31" name="FilePercentComplete">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.CurrentJob.Filament" sequence="34829786" timestamp="2021-03-24T12:52:31" name="Filament">0</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="MarlinPrinters.MyPrinter.Axes" name="Axes">
+                <Events>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.X" sequence="34829789" timestamp="2021-03-24T12:52:31" name="X">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.Y" sequence="34829790" timestamp="2021-03-24T12:52:31" name="Y">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.Z" sequence="34829791" timestamp="2021-03-24T12:52:31" name="Z">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.Layer" sequence="34829787" timestamp="2021-03-24T12:52:31" name="Layer">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.LayerHeight" sequence="34829788" timestamp="2021-03-24T12:52:31" name="LayerHeight">0</Other>
+                    <Other dataItemId="MarlinPrinters.MyPrinter.Axes.Filament" sequence="34829793" timestamp="2021-03-24T12:52:31" name="Filament">0</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Subscriptions" id="subs" name="Subscriptions">
+            <ComponentStream component="Component" componentId="subs.SQLiteDataStore" name="SQLiteDataStore">
+                <Events>
+                    <Other dataItemId="subs.SQLiteDataStore.IsConnected" sequence="913" timestamp="2021-03-18T19:17:57" name="IsConnected">False</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Cameras" id="Cameras" name="Cameras">
+            <ComponentStream component="Component" componentId="Cameras.video0" name="video0">
+                <Events>
+                    <Other dataItemId="Cameras.video0.ImageNew" sequence="583" timestamp="2021-03-18T19:17:53" name="ImageNew">False</Other>
+                    <Other dataItemId="Cameras.video0.Capturing" sequence="584" timestamp="2021-03-18T19:17:53" name="Capturing">False</Other>
+                    <Other dataItemId="Cameras.video0.ErrorCounter" sequence="585" timestamp="2021-03-18T19:17:53" name="ErrorCounter">0</Other>
+                    <Other dataItemId="Cameras.video0.Error" sequence="587" timestamp="2021-03-18T19:17:53" name="Error">False</Other>
+                    <Other dataItemId="Cameras.video0.ErrorNew" sequence="588" timestamp="2021-03-18T19:17:53" name="ErrorNew">False</Other>
+                    <Other dataItemId="Cameras.video0.ErrorMessage" sequence="181" timestamp="2021-03-18T19:17:52" name="ErrorMessage"></Other>
+                    <Other dataItemId="Cameras.video0.ImageCounter" sequence="591" timestamp="2021-03-18T19:17:53" name="ImageCounter">0</Other>
+                    <Other dataItemId="Cameras.video0.ImageTime" sequence="592" timestamp="2021-03-18T19:17:53" name="ImageTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="Cameras.video0.ErrorTime" sequence="593" timestamp="2021-03-18T19:17:53" name="ErrorTime">1/1/0001 12:00:00 AM</Other>
+                    <Other dataItemId="Cameras.video0.ImageName" sequence="191" timestamp="2021-03-18T19:17:52" name="ImageName"></Other>
+                    <Other dataItemId="Cameras.video0.CapturingInterval" sequence="597" timestamp="2021-03-18T19:17:53" name="CapturingInterval">-1</Other>
+                    <Other dataItemId="Cameras.video0.ImagesToRetain" sequence="599" timestamp="2021-03-18T19:17:53" name="ImagesToRetain">12</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="MonitorStatCommands" id="MonitorStatCommands" name="MonitorStatCommands">
+            <Samples>
+                <Other dataItemId="MonitorStatCommands.StepTime" sequence="34829794" timestamp="2021-03-24T12:52:31" name="StepTime">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="MonitorStatCommands.State" sequence="201" timestamp="2021-03-18T19:17:52" name="State">WaitStart</Other>
+                <Other dataItemId="MonitorStatCommands.Done" sequence="34829796" timestamp="2021-03-24T12:52:31" name="Done">False</Other>
+                <Other dataItemId="MonitorStatCommands.Stopped" sequence="34829797" timestamp="2021-03-24T12:52:31" name="Stopped">False</Other>
+                <Other dataItemId="MonitorStatCommands.Running" sequence="34829795" timestamp="2021-03-24T12:52:31" name="Running">False</Other>
+                <Other dataItemId="MonitorStatCommands.FailedMessage" sequence="205" timestamp="2021-03-18T19:17:52" name="FailedMessage"></Other>
+                <Other dataItemId="MonitorStatCommands.Name" sequence="383" timestamp="2021-03-18T19:17:52" name="Name">MonitorStatCommands</Other>
+                <Other dataItemId="MonitorStatCommands.CreatedDate" sequence="406" timestamp="2021-03-18T19:17:52" name="CreatedDate">7:17 PM</Other>
+                <Other dataItemId="MonitorStatCommands.Failed" sequence="34829798" timestamp="2021-03-24T12:52:31" name="Failed">False</Other>
+                <Other dataItemId="MonitorStatCommands.CurrentStepName" sequence="415" timestamp="2021-03-18T19:17:52" name="CurrentStepName"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="SendFacilityInfoMessage" id="SendFacilityInfoMessage" name="SendFacilityInfoMessage">
+            <Samples>
+                <Other dataItemId="SendFacilityInfoMessage.StepTime" sequence="34829799" timestamp="2021-03-24T12:52:31" name="StepTime">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="SendFacilityInfoMessage.State" sequence="209" timestamp="2021-03-18T19:17:52" name="State">WaitStart</Other>
+                <Other dataItemId="SendFacilityInfoMessage.Done" sequence="34829801" timestamp="2021-03-24T12:52:31" name="Done">False</Other>
+                <Other dataItemId="SendFacilityInfoMessage.Stopped" sequence="34829802" timestamp="2021-03-24T12:52:31" name="Stopped">False</Other>
+                <Other dataItemId="SendFacilityInfoMessage.Running" sequence="34829800" timestamp="2021-03-24T12:52:31" name="Running">False</Other>
+                <Other dataItemId="SendFacilityInfoMessage.FailedMessage" sequence="213" timestamp="2021-03-18T19:17:52" name="FailedMessage"></Other>
+                <Other dataItemId="SendFacilityInfoMessage.Name" sequence="384" timestamp="2021-03-18T19:17:52" name="Name">SendFacilityInfoMessage</Other>
+                <Other dataItemId="SendFacilityInfoMessage.CreatedDate" sequence="404" timestamp="2021-03-18T19:17:52" name="CreatedDate">7:17 PM</Other>
+                <Other dataItemId="SendFacilityInfoMessage.Failed" sequence="34829803" timestamp="2021-03-24T12:52:31" name="Failed">False</Other>
+                <Other dataItemId="SendFacilityInfoMessage.CurrentStepName" sequence="414" timestamp="2021-03-18T19:17:52" name="CurrentStepName"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="FlipFlop" id="FlipFlop" name="FlipFlop">
+            <Samples>
+                <Other dataItemId="FlipFlop.StepTime" sequence="34829804" timestamp="2021-03-24T12:52:31" name="StepTime">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="FlipFlop.State" sequence="2426" timestamp="2021-03-18T19:18:22" name="State">Running</Other>
+                <Other dataItemId="FlipFlop.Done" sequence="34829806" timestamp="2021-03-24T12:52:31" name="Done">False</Other>
+                <Other dataItemId="FlipFlop.Stopped" sequence="34829807" timestamp="2021-03-24T12:52:31" name="Stopped">False</Other>
+                <Other dataItemId="FlipFlop.Running" sequence="34829805" timestamp="2021-03-24T12:52:31" name="Running">True</Other>
+                <Other dataItemId="FlipFlop.FailedMessage" sequence="221" timestamp="2021-03-18T19:17:52" name="FailedMessage"></Other>
+                <Other dataItemId="FlipFlop.Name" sequence="382" timestamp="2021-03-18T19:17:52" name="Name">FlipFlop</Other>
+                <Other dataItemId="FlipFlop.CreatedDate" sequence="405" timestamp="2021-03-18T19:17:52" name="CreatedDate">7:17 PM</Other>
+                <Other dataItemId="FlipFlop.Failed" sequence="34829808" timestamp="2021-03-24T12:52:31" name="Failed">False</Other>
+                <Other dataItemId="FlipFlop.CurrentStepName" sequence="34829667" timestamp="2021-03-24T12:52:30" name="CurrentStepName">Turn On</Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="EngineInfo" id="EngineInfo" name="EngineInfo">
+            <Samples>
+                <Other dataItemId="EngineInfo.EngineFootprint" sequence="34829186" timestamp="2021-03-24T12:52:23" name="EngineFootprint">165.53125</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="EngineInfo.License" sequence="572" timestamp="2021-03-18T19:17:53" name="License">LocalStorage, RemoteStorage</Other>
+                <Other dataItemId="EngineInfo.LicenseKey" sequence="574" timestamp="2021-03-18T19:17:53" name="LicenseKey">9ca3f3b8-7506-1796-2579-9501a5cf70f2</Other>
+                <Other dataItemId="EngineInfo.VersionNumber" sequence="488" timestamp="2021-03-18T19:17:53" name="VersionNumber">4.0.21073.0</Other>
+                <Other dataItemId="EngineInfo.IPAddresses" sequence="495" timestamp="2021-03-18T19:17:53" name="IPAddresses">192.168.0.14,192.168.42.1</Other>
+                <Other dataItemId="EngineInfo.HostOS" sequence="247" timestamp="2021-03-18T19:17:52" name="HostOS">Unix 4.9.76.60</Other>
+                <Other dataItemId="EngineInfo.DataDirectory" sequence="497" timestamp="2021-03-18T19:17:53" name="DataDirectory">/usr/SF</Other>
+                <Other dataItemId="EngineInfo.EngineID" sequence="263" timestamp="2021-03-18T19:17:52" name="EngineID">C83EA7018393</Other>
+                <Other dataItemId="EngineInfo.AvailableMemoryMB" sequence="34829187" timestamp="2021-03-24T12:52:23" name="AvailableMemoryMB">569.1328125</Other>
+                <Other dataItemId="EngineInfo.MinAvailableMemoryMB" sequence="34808546" timestamp="2021-03-24T12:47:38" name="MinAvailableMemoryMB">562.203125</Other>
+                <Other dataItemId="EngineInfo.TotalMemoryMB" sequence="545" timestamp="2021-03-18T19:17:53" name="TotalMemoryMB">926.79296875</Other>
+                <Other dataItemId="EngineInfo.ProcessorLoadPct" sequence="34829188" timestamp="2021-03-24T12:52:23" name="ProcessorLoadPct">2</Other>
+                <Other dataItemId="EngineInfo.UpTime" sequence="34829774" timestamp="2021-03-24T12:52:31" name="UpTime">5.17:34:47</Other>
+                <ClockTime dataItemId="EngineInfo.SystemDateTime" sequence="34829773" timestamp="2021-03-24T12:52:31" name="SystemDateTime">3/24/2021 12:52:31 PM</ClockTime>
+                <Other dataItemId="EngineInfo.EngineName" sequence="489991" timestamp="2021-03-18T21:12:05" name="EngineName">Python Engine Name</Other>
+                <Other dataItemId="EngineInfo.StorageProvider" sequence="420" timestamp="2021-03-18T19:17:52" name="StorageProvider">SqlServerDataStore</Other>
+                <Other dataItemId="EngineInfo.EngineLocation" sequence="421" timestamp="2021-03-18T19:17:52" name="EngineLocation"></Other>
+            </Events>
+            <ComponentStream component="Component" componentId="EngineInfo.Location" name="Location">
+                <Samples>
+                    <Other dataItemId="EngineInfo.Location.TimezoneOffset" sequence="490001" timestamp="2021-03-18T21:12:05" name="TimezoneOffset">0</Other>
+                </Samples>
+                <Events>
+                    <Other dataItemId="EngineInfo.Location.PostalCode" sequence="474481" timestamp="2021-03-18T21:08:26" name="PostalCode">07950</Other>
+                    <Other dataItemId="EngineInfo.Location.NearestAirport" sequence="476876" timestamp="2021-03-18T21:08:59" name="NearestAirport"></Other>
+                    <Other dataItemId="EngineInfo.Location.Latitude" sequence="490003" timestamp="2021-03-18T21:12:05" name="Latitude">40.85283</Other>
+                    <Other dataItemId="EngineInfo.Location.Longitude" sequence="490004" timestamp="2021-03-18T21:12:05" name="Longitude">-74.49472</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Networks" id="Networks" name="Networks">
+            <Events>
+                <Other dataItemId="Networks.ProxyAddress" sequence="226" timestamp="2021-03-18T19:17:52" name="ProxyAddress"></Other>
+            </Events>
+            <ComponentStream component="Component" componentId="Networks.eth0" name="eth0">
+                <Events>
+                    <Other dataItemId="Networks.eth0.Connected" sequence="5509159" timestamp="2021-03-19T16:45:38" name="Connected">True</Other>
+                    <Other dataItemId="Networks.eth0.Desc" sequence="230" timestamp="2021-03-18T19:17:52" name="Desc">eth0</Other>
+                    <Other dataItemId="Networks.eth0.Type" sequence="231" timestamp="2021-03-18T19:17:52" name="Type">Ethernet</Other>
+                    <Other dataItemId="Networks.eth0.PhysAddress" sequence="232" timestamp="2021-03-18T19:17:52" name="PhysAddress">C83EA7018393</Other>
+                    <Other dataItemId="Networks.eth0.IPAddress" sequence="5509160" timestamp="2021-03-19T16:45:38" name="IPAddress">192.168.0.14</Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Networks.pileft" name="pileft">
+                <Events>
+                    <Other dataItemId="Networks.pileft.Connected" sequence="1491" timestamp="2021-03-18T19:18:07" name="Connected">False</Other>
+                    <Other dataItemId="Networks.pileft.Desc" sequence="237" timestamp="2021-03-18T19:17:52" name="Desc">pileft</Other>
+                    <Other dataItemId="Networks.pileft.Type" sequence="239" timestamp="2021-03-18T19:17:52" name="Type">Ethernet</Other>
+                    <Other dataItemId="Networks.pileft.PhysAddress" sequence="241" timestamp="2021-03-18T19:17:52" name="PhysAddress">3EBBDFC508B0</Other>
+                    <Other dataItemId="Networks.pileft.IPAddress" sequence="243" timestamp="2021-03-18T19:17:52" name="IPAddress"></Other>
+                </Events>
+            </ComponentStream>
+            <ComponentStream component="Component" componentId="Networks.eth1" name="eth1">
+                <Events>
+                    <Other dataItemId="Networks.eth1.Connected" sequence="1493" timestamp="2021-03-18T19:18:07" name="Connected">True</Other>
+                    <Other dataItemId="Networks.eth1.Desc" sequence="246" timestamp="2021-03-18T19:17:52" name="Desc">eth1</Other>
+                    <Other dataItemId="Networks.eth1.Type" sequence="257" timestamp="2021-03-18T19:17:52" name="Type">Ethernet</Other>
+                    <Other dataItemId="Networks.eth1.PhysAddress" sequence="258" timestamp="2021-03-18T19:17:52" name="PhysAddress">C83EA7018394</Other>
+                    <Other dataItemId="Networks.eth1.IPAddress" sequence="261" timestamp="2021-03-18T19:17:52" name="IPAddress">192.168.42.1</Other>
+                </Events>
+            </ComponentStream>
+        </DeviceStream>
+        <DeviceStream uuid="Timer" id="Timer" name="Timer">
+            <Samples>
+                <Other dataItemId="Timer.Hours" sequence="854" timestamp="2021-03-18T19:17:57" name="Hours">0</Other>
+                <Other dataItemId="Timer.Minutes" sequence="856" timestamp="2021-03-18T19:17:57" name="Minutes">0</Other>
+                <Other dataItemId="Timer.Seconds" sequence="859" timestamp="2021-03-18T19:17:57" name="Seconds">0</Other>
+            </Samples>
+            <Events>
+                <ClockTime dataItemId="Timer.StartTime" sequence="849" timestamp="2021-03-18T19:17:57" name="StartTime">3/18/2021 7:17:44 PM</ClockTime>
+                <ClockTime dataItemId="Timer.EndTime" sequence="852" timestamp="2021-03-18T19:17:57" name="EndTime">3/18/2021 7:17:44 PM</ClockTime>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="MQTT" id="MQTT" name="MQTT">
+            <Samples>
+                <Other dataItemId="MQTT.CommCounter" sequence="890" timestamp="2021-03-18T19:17:57" name="CommCounter">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="MQTT.Configured" sequence="885" timestamp="2021-03-18T19:17:57" name="Configured">False</Other>
+                <Other dataItemId="MQTT.Status" sequence="337" timestamp="2021-03-18T19:17:52" name="Status"></Other>
+                <Other dataItemId="MQTT.Error" sequence="887" timestamp="2021-03-18T19:17:57" name="Error">False</Other>
+                <Other dataItemId="MQTT.Logging" sequence="889" timestamp="2021-03-18T19:17:57" name="Logging">False</Other>
+                <Other dataItemId="MQTT.LogFile" sequence="358" timestamp="2021-03-18T19:17:52" name="LogFile"></Other>
+                <Other dataItemId="MQTT.LastCommTime" sequence="892" timestamp="2021-03-18T19:17:57" name="LastCommTime">1/1/0001 12:00:00 AM</Other>
+                <Other dataItemId="MQTT.BrokerAddress" sequence="377" timestamp="2021-03-18T19:17:52" name="BrokerAddress"></Other>
+                <Other dataItemId="MQTT.RootTopic" sequence="380" timestamp="2021-03-18T19:17:52" name="RootTopic"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="Sensors" id="sensor" name="Sensors">
+            <Events>
+                <Other dataItemId="sensor.Faulted" sequence="905" timestamp="2021-03-18T19:17:57" name="Faulted">False</Other>
+                <Other dataItemId="sensor.FaultInfo" sequence="338" timestamp="2021-03-18T19:17:52" name="FaultInfo"></Other>
+            </Events>
+        </DeviceStream>
+        <DeviceStream uuid="SerialPort" id="SerialPort" name="SerialPort">
+            <Samples>
+                <Other dataItemId="SerialPort.WriteCounter" sequence="910" timestamp="2021-03-18T19:17:57" name="WriteCounter">0</Other>
+                <Other dataItemId="SerialPort.ErrorCounter" sequence="911" timestamp="2021-03-18T19:17:57" name="ErrorCounter">0</Other>
+            </Samples>
+            <Events>
+                <Other dataItemId="SerialPort.IsConnected" sequence="909" timestamp="2021-03-18T19:17:57" name="IsConnected">False</Other>
+                <Other dataItemId="SerialPort.Status" sequence="379" timestamp="2021-03-18T19:17:52" name="Status">Waiting for Initialization</Other>
+                <Other dataItemId="SerialPort.PortName" sequence="407" timestamp="2021-03-18T19:17:52" name="PortName">Not configured</Other>
+                <Other dataItemId="SerialPort.Faulted" sequence="912" timestamp="2021-03-18T19:17:57" name="Faulted">False</Other>
+                <Other dataItemId="SerialPort.FaultInfo" sequence="413" timestamp="2021-03-18T19:17:52" name="FaultInfo"></Other>
+            </Events>
+        </DeviceStream>
+    </Streams>
+</MTConnectStreams>

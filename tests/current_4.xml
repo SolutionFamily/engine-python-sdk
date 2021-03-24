@@ -1,0 +1,12 @@
+<MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 http://www.mtconnect.org/schemas/MTConnectStreams_1.1.xsd">
+    <Header creationTime="2021-03-24T16:52:32" sender="RevPi40109" instanceId="637517062788184740" bufferSize="10000" version="4.0.21073.0" nextSequence="34829811" firstSequence="12" lastSequence="34829811" />
+    <Streams>
+        <DeviceStream uuid="AMNOW-Operations" id="AMNOW-Operations" name="AMNOW-Operations">
+            <ComponentStream component="Component" componentId="AMNOW-Operations.StopGapFaceMask" name="StopGapFaceMask">
+                <Samples>
+                    <Other dataItemId="AMNOW-Operations.StopGapFaceMask.PartCounter" sequence="600" timestamp="2021-03-18T19:17:53" name="PartCounter">0</Other>
+                </Samples>
+            </ComponentStream>
+        </DeviceStream>
+    </Streams>
+</MTConnectStreams>

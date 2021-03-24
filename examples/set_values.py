@@ -18,6 +18,8 @@ def main(args=[]):
     engine.set_current_data_values(values_to_set)
     print("done.")
 
+    engine.set_current_data_value('Facility.Start', True)
+
 
 if __name__ == '__main__':
     main(args=sys.argv)
