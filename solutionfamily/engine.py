@@ -31,6 +31,27 @@ class Engine:
     def __getitem__(self, key):
         return next((d for d in self.devices if d.name == key), None)
 
+    def find_component(self, componentID):
+        # make sure we've queried structure first
+        if len(self.devices) == 0:
+            self.refresh_structure()
+        
+        # walk the tree looking for the requested item
+        for d in self.devices:
+            if d.id == componentID:
+                return d
+
+            for c in d.components:
+                if c.id == componentID:
+                    return c
+
+                for sc in c.components:
+                    if sc.id == componentID:
+                        return sc
+                
+        # nothing found
+        return None
+        
     def refresh_info(self):
         # use an MTConnect query, as they don't require v4 APIs
         self.version = self.get_current_value('EngineInfo.VersionNumber')
@@ -197,10 +218,11 @@ class DataItemList():
         #returning __iter__ object
         return self
 
-    def __next__(self):
-        self.__index = self.__index + 1
+    def __next__(self):        
         if self.__index < len(self.__dataItems):
-            return self.__dataItems[self.__index]
+            val = self.__dataItems[self.__index]
+            self.__index = self.__index + 1
+            return val
         
         raise StopIteration
 
