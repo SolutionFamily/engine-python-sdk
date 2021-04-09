@@ -5,7 +5,7 @@ setup(
     packages=['solutionfamily'],
     include_package_data=True,
     install_requires=['lxml', 'requests', 'python-dateutil'],
-    version='1.0.7',
+    version='1.0.8',
     description='A Python SDK for interacting with SolutionFamily\'s Solution Engine.',
     long_description='A Python SDK for interacting with SolutionFamily\'s Solution Engine.',
     long_description_content_type='text/x-rst',
