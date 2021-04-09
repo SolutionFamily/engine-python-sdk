@@ -4,7 +4,7 @@ import sys
 from solutionfamily.engine import Engine
 
 def main(args=[]):
-    address = "http://192.168.0.14:8080"
+    address = "http://192.168.0.9:8080"
 
     print(f"Querying Engine Network Information...")
     engine = Engine.fromurl(address)
@@ -12,7 +12,7 @@ def main(args=[]):
     engine.refresh_structure()
 
     for adapter in engine["Networks"].components:
-        print(f"{adapter.name} at {adapter.dataItems['IPAddress'].get_current_value()}")
+        print(f"{adapter.name} at {adapter.dataItems['IPAddress'].get_current_value().value}")
 
 
 if __name__ == '__main__':

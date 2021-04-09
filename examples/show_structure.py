@@ -4,7 +4,7 @@ import sys
 from solutionfamily.engine import Engine
 
 def main(args=[]):
-    address = "http://192.168.0.14:8080"
+    address = "http://192.168.0.9:8080"
 
     engine = Engine.fromurl(address)
 

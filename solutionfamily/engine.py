@@ -4,6 +4,7 @@ import dateutil.parser
 from datetime import datetime
 import collections
 import json
+from requests.exceptions import ConnectionError
 
 # pip requirements:
 #install lxml
@@ -54,21 +55,28 @@ class Engine:
         
     def refresh_info(self):
         # use an MTConnect query, as they don't require v4 APIs
-        self.version = self.get_current_value('EngineInfo.VersionNumber')
+        self.version = self.get_current_value('EngineInfo.VersionNumber').value
         self.__build = int(self.version.split('.')[2])
-        self.hostOS = self.get_current_value('EngineInfo.HostOS')
-        self.name = self.get_current_value('EngineInfo.EngineName')
+        self.hostOS = self.get_current_value('EngineInfo.HostOS').value
+        self.name = self.get_current_value('EngineInfo.EngineName').value
 
     def refresh_structure(self):
         self.__loadmethods(self.url)
         self.__loaddevices(self.url)
 
     def get_current_value(self, dataItemId):
-        response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
-        if response.ok:
-            return self.__get_current_value_from_xml(dataItemId, response.content)
-        else:
-            return None
+        try:
+            response = requests.get(f'{self.url}/mtc/current?path=//DataItem[@id=\"{dataItemId}\"]')
+
+            if response.ok:
+                return self.__get_current_value_from_xml(dataItemId, response.content)
+            else:
+                raise Exception(f"Error getting value: '{response.status_code}'")
+        except ConnectionError:
+            raise Exception(f"Unable to connect to an Engine at '{self.url}'")
+        except Exception as e:
+            raise e
+
     
     def __find_current_value_in_children(self, dataItemId, node):
         child_nodes = list(node)
@@ -82,8 +90,8 @@ class Engine:
                 item_list = list(child)
                 for di in item_list:
                     if di.attrib['dataItemId']==dataItemId:
-                        return di.text                        
-        return None
+                        return DataItemValue(di.attrib["dataItemId"], di.text, di.attrib["timestamp"], di.attrib["sequence"])
+        return DataItemValue(dataItemId, None, None, None)
 
     def __get_current_value_from_xml(self, dataItemId, xml):
         try:
@@ -99,7 +107,7 @@ class Engine:
                 if found:
                     return found
                     
-        return None
+        return DataItemValue(dataItemId, None, None, None)
 
     def set_current_data_value(self, dataItemId, value):
         return self.set_current_data_values({dataItemId: value})
@@ -393,3 +401,10 @@ class DataItem:
             if(response.status_code == 200):
                 self.value = valnode
                 self.timestamp = datetime.now()
+
+class DataItemValue:
+    def __init__(self, id, value, timestamp, sequence):
+        self.id = id
+        self.value = value
+        self.timestamp = timestamp
+        self.sequence = sequence
