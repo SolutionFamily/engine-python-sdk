@@ -186,7 +186,7 @@ class Engine:
                 self.__Methods = list
 
     def __loaddevices(self, path):
-        response = requests.get(path + '/mtc/probe')        
+        response = requests.get(path + '/mtc/probe')
         tree = ET.fromstring(response.content)
         list = []
         devices = tree.find('mtc:Devices', Engine.ns)
@@ -251,6 +251,8 @@ class Node:
         if cmps:
             clist = []
             for c in cmps.findall('mtc:Component', Engine.ns):
+                clist.append(Component(self.__engine, path, c))
+            for c in cmps.findall('mtc:Controllers', Engine.ns):
                 clist.append(Component(self.__engine, path, c))
             self.components = clist
 
