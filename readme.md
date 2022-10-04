@@ -13,7 +13,9 @@ The SDK is [availble directly from PyPI](https://pypi.org/project/solutionfamily
 Use `pip3` to install to your environment.
 
 ```
-pip install solutionfamily
+sudo apt-get install libxslt-dev
+sudo apt-get install libxml2-dev
+sudo pip install solutionfamily
 ```
 
 ## Examples
