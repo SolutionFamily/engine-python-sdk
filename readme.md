@@ -18,6 +18,12 @@ sudo apt-get install libxml2-dev
 pip3 install solutionfamily
 ```
 
+If you do not have Python3 installed use the following
+...
+sudo apt update
+sudo apt install python3 idle3
+...
+
 ## Examples
 
 [All Examples are available here](examples/readme.md)
