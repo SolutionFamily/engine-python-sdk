@@ -15,7 +15,7 @@ Use `pip3` to install to your environment.
 ```
 sudo apt-get install libxslt-dev
 sudo apt-get install libxml2-dev
-sudo pip install solutionfamily
+sudo pip3 install solutionfamily
 ```
 
 ## Examples
