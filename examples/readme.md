@@ -83,3 +83,8 @@ print(f"Calling Engine method...")
 engine.invoke_method('EngineInfo', 'RestartEngine')
 print("done.")
 ```
+
+## Controller Overview
+[`controller.py`](controller.py)
+
+![image](https://user-images.githubusercontent.com/1340128/194188649-74f7b021-cd17-41de-a7a1-242ddddb70da.png)
